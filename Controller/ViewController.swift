@@ -12,9 +12,16 @@ class ViewController: UIViewController {
         if sender == choice1Button {
             currentStoryIndex += 1
         } else if sender == choice2Button {
-            currentStoryIndex += 2
+            currentStoryIndex += 1
         }
-        updateUi()
+        
+        if currentStoryIndex >= stories.count {
+            storyLabel.text = "You have completed your quest"
+            choice1Button.isEnabled = false
+            choice2Button.isEnabled = false
+        } else {
+            updateUi()
+        }
     }
     
     func updateUi() {
